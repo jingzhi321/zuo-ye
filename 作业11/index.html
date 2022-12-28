@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>注册界面</title>
+		<style>
+			div {
+				font-size :20px;
+				width: 250px;
+				height: 80px;
+			}
+			.box {
+				box-align: center;
+				width: 80px;
+				height: 40px;
+			}
+		</style>
+	</head>
+	<body>
+		<h3>注册</h3>
+		<form action="" method="post" >
+			<div>绰号:<input type="text" id="user" /></div>
+			<div>出生日期:<input type="text" id="birth"/></div>
+			<div>请设置密码: <input type="password" id="keyword" /></div>
+			<div>请再次确认密码: <input type="password" id="keyword" /></div>
+			<input type="button" value="注册" onclick="pass()" class="box"/>
+			<input type="reset" value="重置" class="box"/>
+		</form>
+		<script type="text/javascript">
+			function $(id) {
+				return document.getElementById("keyword")
+			}
+
+			function pass() {
+				var password = document.getElementById("keyword").value;
+				if (password.length < 6) {
+					alert("密码过于简单")
+					return;
+				} else {
+					var count = 0
+					for (var i = 0; i < password.length; i++) {
+						if ((password[i] >= 'a' && password[i] <= 'z') || (password[i] >= 'A' && password[i] <= 'Z')) {
+							count++;
+						}
+					}
+					if (count >= 3) {
+						alert("输入格式正确")
+					} else {
+						alert("密码必须含有三位字母")
+					}
+				}
+				alert("您的绰号是：" + (document.getElementById("user").value) + "密码是：" + (document.getElementById("keyword").value))
+			}
+		</script>
+	</body>
+</html>
